@@ -15,3 +15,21 @@ def two_list_dictionary(keys, values):
         >>> two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])
         {'a': 1, 'b': 2, 'c': 3}
    """
+    new_dict = {}
+    if len(keys) == len(values):
+        for n in range(len(keys)):
+            new_dict[keys[n]] = values[n]
+    elif len(keys) > len(values):
+        for n in range(len(keys)):
+            if n < len(values):
+                new_dict[keys[n]] = values[n]
+            elif n >= len(values):
+                new_dict[keys[n]] = None
+    elif len(keys) < len(values):
+        for n in range(len(keys)):
+            new_dict[keys[n]] = values[n]
+    return new_dict
+
+print(two_list_dictionary(['x', 'y', 'z'], [9, 8, 7]))
+print(two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3]))
+print(two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4]))

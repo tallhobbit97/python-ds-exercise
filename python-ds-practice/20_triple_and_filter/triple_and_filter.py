@@ -13,3 +13,9 @@ def triple_and_filter(nums):
         >>> triple_and_filter([1, 2])
         []
     """
+    new_list = [num * 3 for num in nums if num % 4 == 0]
+    return new_list
+
+print(triple_and_filter([1, 2, 3, 4]))
+print(triple_and_filter([6, 8, 10, 12]))
+print(triple_and_filter([1, 2]))

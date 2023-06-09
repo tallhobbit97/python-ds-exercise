@@ -21,3 +21,24 @@ def two_oldest_ages(ages):
     # you may find it helpful to research the `sorted(iter)` function, which
     # can take *any* type of list-like-thing, and returns a new, sorted list
     # from it.
+    new_list = list(set(ages))
+    new_list.sort()
+    two_oldest = []
+    oldest = 0
+    for age in new_list:
+        if age > oldest:
+            oldest = age
+    two_oldest.append(oldest)
+    for age in new_list:
+        if age == oldest:
+            new_list.remove(age)
+    oldest = 0
+    for age in new_list:
+        if age > oldest:
+            oldest = age
+    two_oldest.insert(0, oldest)
+    return tuple(two_oldest)
+
+print(two_oldest_ages([1, 2, 10, 8]))
+print(two_oldest_ages([6, 1, 9, 10, 4]))
+print(two_oldest_ages([1, 5, 5, 2]))
